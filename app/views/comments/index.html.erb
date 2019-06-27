@@ -1,0 +1,18 @@
+<h1>Comments#index</h1>
+<p>Find me in app/views/comments/index.html.erb</p>
+<%= label_tag :search %>
+<%= text_field :search, 'search', placeholder: 'Buscar' %>
+
+<p></p>
+
+<%= form_with model: Comment.new, local: true do |f| %>
+ <%= f.label :content %>
+ <%= f.text_field :content %>
+ <%= f.submit :enviar, id: 'button' %>
+<% end %>
+
+<div id='comments'>
+    <% @comments.each do |comment| %>
+    <p><%= comment.content%></p>
+    <% end %>
+<div>
